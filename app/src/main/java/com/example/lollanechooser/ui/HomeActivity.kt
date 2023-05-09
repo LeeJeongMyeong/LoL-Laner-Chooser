@@ -12,13 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lollanechooser.R
 import com.example.lollanechooser.common.Config.mPlayerList
 import com.example.lollanechooser.databinding.ActivityHomeBinding
+import com.example.lollanechooser.model.Laner
 import com.example.lollanechooser.model.Player
-import com.orhanobut.logger.Logger
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var mContext: Context
 
     private lateinit var mBinding: ActivityHomeBinding
+
+    private var mResultList = ArrayList<Laner>()     // 라인에 들어가는 사람 배열
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding =
@@ -76,19 +81,106 @@ class HomeActivity : AppCompatActivity() {
                     }
                 }
 
-
                 if (playerAllNull) {
                     Toast.makeText(mContext, "그래도 하나는 누르셔야죠....", Toast.LENGTH_LONG).show()
                 } else if (laneAllNull) {
                     Toast.makeText(mContext, "그래도 라인은 가셔야죠....", Toast.LENGTH_LONG).show()
                 } else {
-                    val intent = Intent(mContext, ResultActivity::class.java)
-                    mContext.startActivity(intent)
+
+                    mResultList = ArrayList()
+                    val tmp = Laner()
+                    search(tmp)
+
+                    if (mResultList.size == 0) {
+                        Toast.makeText(mContext, "가능한 경우의수가 없습니다.", Toast.LENGTH_LONG).show()
+                    } else {
+                        val lanerRandom = Random().nextInt(mResultList.size - 1)
+
+                        val intent = Intent(mContext, ResultActivity::class.java)
+
+                        intent.putExtra("laner", mResultList[lanerRandom])
+                        mContext.startActivity(intent)
+                    }
                 }
-
-
             }
         }
+    }
+
+    private fun search(tmpLaner: Laner) {
+        val tmp = tmpLaner.copy()
+
+        for (i in 0 until mPlayerList.size) {
+            if (tmp.topLaner!!.isEmpty()) {
+                if (mPlayerList[i].top) {
+                    val tmpTop = tmp.copy()
+                    tmpTop.topLaner = mPlayerList[i].name
+                    search(tmpTop)
+                }
+            } else {
+                if (tmp.jglLaner!!.isEmpty()) {
+                    if (tmp.topLaner == mPlayerList[i].name) {
+                        continue
+                    } else {
+                        if (mPlayerList[i].jgl) {
+                            val tmpJgl = tmp.copy()
+                            tmpJgl.jglLaner = mPlayerList[i].name
+                            search(tmpJgl)
+                        }
+                    }
+
+                } else {
+                    if (tmp.midLaner!!.isEmpty()) {
+                        if (tmp.topLaner == mPlayerList[i].name) {
+                            continue
+                        } else if (tmp.jglLaner == mPlayerList[i].name) {
+                            continue
+                        } else {
+                            if (mPlayerList[i].mid) {
+                                val tmpMid = tmp.copy()
+                                tmpMid.midLaner = mPlayerList[i].name
+                                search(tmpMid)
+                            }
+                        }
+                    } else {
+                        if (tmp.botLaner!!.isEmpty()) {
+                            if (tmp.topLaner == mPlayerList[i].name) {
+                                continue
+                            } else if (tmp.jglLaner == mPlayerList[i].name) {
+                                continue
+                            } else if (tmp.midLaner == mPlayerList[i].name) {
+                                continue
+                            } else {
+                                if (mPlayerList[i].bot) {
+                                    val tmpBot = tmp.copy()
+                                    tmpBot.botLaner = mPlayerList[i].name
+                                    search(tmpBot)
+                                }
+                            }
+                        } else {
+                            if (tmp.sptLaner!!.isEmpty()) {
+                                if (tmp.topLaner == mPlayerList[i].name) {
+                                    continue
+                                } else if (tmp.jglLaner == mPlayerList[i].name) {
+                                    continue
+                                } else if (tmp.midLaner == mPlayerList[i].name) {
+                                    continue
+                                } else if (tmp.botLaner == mPlayerList[i].name) {
+                                    continue
+                                } else {
+                                    if (mPlayerList[i].spt) {
+                                        val tmpSpt = tmp.copy()
+                                        tmpSpt.sptLaner = mPlayerList[i].name
+                                        mResultList.add(tmpSpt)
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
 }
