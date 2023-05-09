@@ -42,8 +42,6 @@ class HomeActivity : AppCompatActivity() {
         mPlayerList.add(Player("이정명"))
         mPlayerList.add(Player("Unknown"))
 
-
-
         with(mBinding) {
             playerList.adapter = PlayerAdapter(mPlayerList)
             playerList.layoutManager = LinearLayoutManager(mContext)
@@ -55,22 +53,37 @@ class HomeActivity : AppCompatActivity() {
 
             btGetLine.setOnClickListener {
 
-                Logger.d("LeeJm : $mPlayerList")
-
-                var allNull = false
+                var playerAllNull = false   //한 명이 다 안누른사람이 있다면 거르기위한 값
                 for (i in tmpPlayerList) {
                     if (!i.top && !i.jgl && !i.mid && !i.bot && !i.spt) {
-                        allNull = true
+                        playerAllNull = true
                         break
                     }
                 }
 
-                if (!allNull) {
+                val tmpPlayer = Player("", false, false, false, false, false)
+                var laneAllNull = true     // 한 라인이 다 안눌렸다면 거르기위한 값
+                for (i in tmpPlayerList) {
+                    if (i.top) tmpPlayer.top = true
+                    if (i.jgl) tmpPlayer.jgl = true
+                    if (i.mid) tmpPlayer.mid = true
+                    if (i.bot) tmpPlayer.bot = true
+                    if (i.spt) tmpPlayer.spt = true
+
+                    if (tmpPlayer.top && tmpPlayer.jgl && tmpPlayer.mid && tmpPlayer.bot && tmpPlayer.spt) {
+                        laneAllNull = false
+                        break
+                    }
+                }
+
+
+                if (playerAllNull) {
+                    Toast.makeText(mContext, "그래도 하나는 누르셔야죠....", Toast.LENGTH_LONG).show()
+                } else if (laneAllNull) {
+                    Toast.makeText(mContext, "그래도 라인은 가셔야죠....", Toast.LENGTH_LONG).show()
+                } else {
                     val intent = Intent(mContext, ResultActivity::class.java)
                     mContext.startActivity(intent)
-
-                } else {
-                    Toast.makeText(mContext, "그래도 하나는 누르셔야죠....", Toast.LENGTH_LONG).show()
                 }
 
 
