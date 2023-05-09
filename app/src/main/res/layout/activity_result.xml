@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.HomeActivity">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/top_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/top"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/top_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="22dp"
+            android:gravity="end"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@id/top_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/top_text"
+            app:layout_constraintTop_toTopOf="@id/top_text"
+            tools:text="이정명" />
+
+
+        <TextView
+            android:id="@+id/jgl_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/jgl"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/top_text"
+            app:layout_constraintTop_toBottomOf="@id/top_text" />
+
+        <TextView
+            android:id="@+id/jgl_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@id/jgl_text"
+            app:layout_constraintEnd_toEndOf="@id/top_value"
+            app:layout_constraintStart_toEndOf="@id/jgl_text"
+            app:layout_constraintTop_toTopOf="@id/jgl_text"
+            tools:text="이정명" />
+
+
+        <TextView
+            android:id="@+id/mid_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/mid"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/top_text"
+            app:layout_constraintTop_toBottomOf="@id/jgl_text" />
+
+        <TextView
+            android:id="@+id/mid_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@id/mid_text"
+            app:layout_constraintEnd_toEndOf="@id/top_value"
+            app:layout_constraintStart_toEndOf="@id/mid_text"
+            app:layout_constraintTop_toTopOf="@id/mid_text"
+            tools:text="이정명" />
+
+        <TextView
+            android:id="@+id/bot_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/bot"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/top_text"
+            app:layout_constraintTop_toBottomOf="@id/mid_text" />
+
+        <TextView
+            android:id="@+id/bot_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@id/bot_text"
+            app:layout_constraintEnd_toEndOf="@id/top_value"
+            app:layout_constraintStart_toEndOf="@id/bot_text"
+            app:layout_constraintTop_toTopOf="@id/bot_text"
+            tools:text="이정명" />
+
+        <TextView
+            android:id="@+id/spt_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/spt"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/top_text"
+            app:layout_constraintTop_toBottomOf="@id/bot_text" />
+
+        <TextView
+            android:id="@+id/spt_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@id/spt_text"
+            app:layout_constraintEnd_toEndOf="@id/top_value"
+            app:layout_constraintStart_toEndOf="@id/spt_text"
+            app:layout_constraintTop_toTopOf="@id/spt_text"
+            tools:text="이정명" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

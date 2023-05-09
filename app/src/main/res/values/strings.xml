@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LolLaneChooser</string>
+    <string name="meta_test_str">meta-data Test!!!!</string>
+
+    <string name="top">탑</string>
+    <string name="jgl">정글</string>
+    <string name="mid">미드</string>
+    <string name="bot">원딜</string>
+    <string name="spt">서폿</string>
+
+    <string name="start">START</string>
+</resources>
