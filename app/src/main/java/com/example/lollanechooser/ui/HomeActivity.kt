@@ -34,6 +34,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initSetting() {
 
+        mPlayerList = ArrayList()
 
         mPlayerList.add(Player("김상일"))
         mPlayerList.add(Player("이동연"))
