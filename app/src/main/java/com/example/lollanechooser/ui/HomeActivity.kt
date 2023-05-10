@@ -45,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
         mPlayerList.add(Player("이동연"))
         mPlayerList.add(Player("이승열"))
         mPlayerList.add(Player("이정명"))
-        mPlayerList.add(Player("Unknown"))
+        mPlayerList.add(Player("이현재"))
 
         with(mBinding) {
             playerList.adapter = PlayerAdapter(mPlayerList)

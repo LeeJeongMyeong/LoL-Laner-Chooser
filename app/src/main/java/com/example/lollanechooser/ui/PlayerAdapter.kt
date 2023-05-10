@@ -15,6 +15,7 @@ class PlayerAdapter(private val mPlayerSet: ArrayList<Player>) :
     private lateinit var mContext: Context
 
     inner class MyViewHolder(private val binding: ItemPlayerBinding) :
+//    inner class MyViewHolder(private val binding: ItemPlayerIconBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Player, position: Int) {
 
@@ -71,6 +72,7 @@ class PlayerAdapter(private val mPlayerSet: ArrayList<Player>) :
         mContext = parent.context
         val binding =
             ItemPlayerBinding.inflate(LayoutInflater.from(mContext), parent, false)
+//            ItemPlayerIconBinding.inflate(LayoutInflater.from(mContext), parent, false)
         return MyViewHolder(binding)
     }
 

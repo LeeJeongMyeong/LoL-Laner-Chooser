@@ -21,52 +21,55 @@
 
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:id="@+id/player_line_selector"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
             app:layout_constraintTop_toBottomOf="@id/player_name">
 
             <Button
                 android:id="@+id/line_top"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/top" />
+                app:icon="@drawable/ic_top" />
 
             <Button
                 android:id="@+id/line_jgl"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/jgl" />
+                app:icon="@drawable/ic_jgl" />
 
             <Button
                 android:id="@+id/line_mid"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/mid" />
+                app:icon="@drawable/ic_mid" />
 
             <Button
                 android:id="@+id/line_bot"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/bot" />
+                app:icon="@drawable/ic_bot_24dp" />
 
             <Button
                 android:id="@+id/line_spt"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/spt" />
+                app:icon="@drawable/ic_spt" />
+
+            <!--            style="?attr/materialButtonOutlinedStyle"-->
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
