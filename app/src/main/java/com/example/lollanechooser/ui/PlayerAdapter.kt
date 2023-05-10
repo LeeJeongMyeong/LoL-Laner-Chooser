@@ -3,6 +3,7 @@ package com.example.lollanechooser.ui
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lollanechooser.R
 import com.example.lollanechooser.common.Config
@@ -20,7 +21,14 @@ class PlayerAdapter(private val mPlayerSet: ArrayList<Player>) :
         fun bind(data: Player, position: Int) {
 
             with(binding) {
-                playerName.text = data.name
+//                playerName.setText(data.name)
+
+                playerNameInput.setText(data.name)
+
+                playerNameInput.addTextChangedListener {
+                    Config.mPlayerList[position].name = it.toString()
+                }
+
 
                 if (data.top)
                     playerLineSelector.check(R.id.line_top)
@@ -33,8 +41,7 @@ class PlayerAdapter(private val mPlayerSet: ArrayList<Player>) :
                 if (data.spt)
                     playerLineSelector.check(R.id.line_spt)
 
-
-                playerLineSelector.addOnButtonCheckedListener { group, checkedId, isChecked ->
+                playerLineSelector.addOnButtonCheckedListener { _, checkedId, isChecked ->
 
                     when (checkedId) {
                         R.id.line_top -> {
