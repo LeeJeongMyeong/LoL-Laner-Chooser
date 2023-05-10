@@ -10,6 +10,12 @@ import com.example.lollanechooser.model.Laner
 import java.util.*
 
 
+/**
+ * ResultActivity
+ * Created by 2023/05/10
+ *
+ * Description: 결과화면
+ */
 class ResultActivity : AppCompatActivity() {
     private lateinit var mContext: Context
 

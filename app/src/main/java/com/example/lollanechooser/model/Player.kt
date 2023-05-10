@@ -1,5 +1,11 @@
 package com.example.lollanechooser.model
 
+/**
+ * Player
+ * Created by 2023/05/10
+ *
+ * Description: 사용자 정보
+ */
 data class Player(
 
     var name:String,

@@ -15,7 +15,6 @@ import com.orhanobut.logger.PrettyFormatStrategy
  */
 class MainApplication : Application() {
 
-
     override fun onCreate() {
         super.onCreate()
 

@@ -10,18 +10,23 @@ import com.example.lollanechooser.common.Config
 import com.example.lollanechooser.databinding.ItemPlayerBinding
 import com.example.lollanechooser.model.Player
 
+/**
+ * PlayerAdapter
+ * Created by 2023/05/10
+ *
+ * Description: 홈화면에 표시될 사용자
+ */
 class PlayerAdapter(private val mPlayerSet: ArrayList<Player>) :
     RecyclerView.Adapter<PlayerAdapter.MyViewHolder>() {
 
     private lateinit var mContext: Context
 
     inner class MyViewHolder(private val binding: ItemPlayerBinding) :
-//    inner class MyViewHolder(private val binding: ItemPlayerIconBinding) :
+//    inner class MyViewHolder(private val binding: ItemPlayerIconBinding) :    // 아이콘 있는 뷰
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Player, position: Int) {
 
             with(binding) {
-//                playerName.setText(data.name)
 
                 playerNameInput.setText(data.name)
 
@@ -79,7 +84,7 @@ class PlayerAdapter(private val mPlayerSet: ArrayList<Player>) :
         mContext = parent.context
         val binding =
             ItemPlayerBinding.inflate(LayoutInflater.from(mContext), parent, false)
-//            ItemPlayerIconBinding.inflate(LayoutInflater.from(mContext), parent, false)
+//            ItemPlayerIconBinding.inflate(LayoutInflater.from(mContext), parent, false)       // 아이콘있는 뷰
         return MyViewHolder(binding)
     }
 

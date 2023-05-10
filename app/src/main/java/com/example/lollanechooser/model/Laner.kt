@@ -3,6 +3,12 @@ package com.example.lollanechooser.model
 import android.os.Parcel
 import android.os.Parcelable
 
+/**
+ * Laner
+ * Created by 2023/05/10
+ *
+ * Description: 각 라이너 매칭 이름
+ */
 data class Laner(
     var topLaner: String? = "",
     var jglLaner: String? = "",

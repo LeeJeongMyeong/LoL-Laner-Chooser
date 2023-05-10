@@ -9,4 +9,10 @@
     <string name="spt">서폿</string>
 
     <string name="start">START</string>
+
+    <string name="all_null_player">그래도 하나는 누르셔야죠....</string>
+    <string name="all_null_laner">그래도 라인은 가셔야죠....</string>
+    <string name="name_is_empty">비어있는 사용자명은 기본명으로 대체합니다.</string>
+
+    <string name="can_not_fount_dfs">가능한 경우의수가 없습니다.</string>
 </resources>
